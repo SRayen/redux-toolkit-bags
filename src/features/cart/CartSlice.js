@@ -10,18 +10,14 @@ const initialState = {
   isLoading: true,
 };
 
-export const getCartItems = createAsyncThunk(
-  "cart/getCartItems",
-  async (name, thunkApi) => {
-    try {
-      console.log(thunkApi.getState);
-      const resp = await axios(url);
-      return resp.data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
+export const getCartItems = createAsyncThunk("cart/getCartItems", async () => {
+  try {
+    const resp = await axios(url);
+    return resp.data;
+  } catch (error) {
+    console.log(error.message);
   }
-);
+});
 
 const cartSlice = createSlice({
   name: "cart",

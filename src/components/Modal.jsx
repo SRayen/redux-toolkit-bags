@@ -21,6 +21,7 @@ const Modal = () => {
             >
               confirm
             </button>
+            
           </div>
           <div className="btn-container">
             <button
